@@ -1,0 +1,6 @@
+Contact: mailto:security@example.com
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://example.com/pgp-key.txt
+Acknowledgments: https://example.com/security/hall-of-fame
+Policy: https://example.com/security-policy
+Hiring: https://example.com/jobs/security

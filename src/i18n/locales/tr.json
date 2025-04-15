@@ -1,0 +1,66 @@
+{
+  "app": {
+    "title": "Çağrı Yönlendirme Asistanı",
+    "description": "AI asistanımızı kullanmak için telefonunuza çağrı yönlendirme kodu oluşturun",
+    "footer": "© 2025 Çağrı Yönlendirme Asistanı. Tüm hakları saklıdır."
+  },
+  "form": {
+    "country": "Ülke",
+    "selectCountry": "Ülkenizi seçin",
+    "operator": "Mobil Operatör",
+    "selectOperator": "Operatörünüzü seçin",
+    "phoneNumber": "Telefon Numarası",
+    "phoneNumberPlaceholder": "Telefon numaranızı girin",
+    "generate": "Kod Oluştur"
+  },
+  "result": {
+    "title": "Çağrı Yönlendirme Kodunuz",
+    "description": "Aramaları AI asistanımıza yönlendirmek için bu kodu telefonunuzda kullanın",
+    "copyButton": "Panoya kopyala",
+    "copied": "Kopyalandı!",
+    "instructions": "Nasıl kullanılır",
+    "step1": "Bu kodu telefonunuzda çevirin",
+    "step2": "Arama düğmesine basın",
+    "step3": "Onay için bekleyin",
+    "cancelTitle": "Çağrı yönlendirmeyi iptal etmek için şunu çevirin:"
+  },
+  "download": {
+    "title": "Uygulamamızı İndirin",
+    "description": "Gelişmiş bir deneyim için mobil uygulamamızı edinin",
+    "scanQR": "Bu QR kodu tarayın",
+    "orDownload": "Veya doğrudan indirin",
+    "downloadButton": "Uygulamayı İndir",
+    "androidOnly": "Şu anda yalnızca Android cihazlar için mevcut"
+  },
+  "language": {
+    "en": "İngilizce",
+    "tr": "Türkçe",
+    "fr": "Fransızca",
+    "ar": "Arapça"
+  },
+  "assistant": {
+    "title": "AI Asistanı",
+    "welcomeMessage": "👋 Merhaba! Ben AI asistanınızım. Çağrı yönlendirme hizmetimizi anlamanıza nasıl yardımcı olabilirim?",
+    "downloadHelp": "👋 Merhaba! Uygulamamızı indirmenize ve kurmanıza yardımcı olabilirim. Kurulum süreci hakkında sorularınız var mı?",
+    "typeMessage": "Mesajınızı yazın...",
+    "enterInfo": "Bilgilerinizi girin...",
+    "startVoiceInput": "Sesli Girişi Başlat",
+    "stopRecording": "Kaydı Durdur",
+    "processing": "İşleniyor..."
+  },
+  "sectors": {
+    "restaurant": "Restoran",
+    "clinic": "Tıp Kliniği",
+    "hotel": "Otel",
+    "mechanic": "Oto Tamircisi",
+    "carRental": "Araç Kiralama",
+    "foodDelivery": "Yemek Teslimatı",
+    "retail": "Perakende Mağazası",
+    "salon": "Güzellik Salonu",
+    "gym": "Spor Salonu",
+    "spa": "Spa & Wellness",
+    "dentist": "Diş Kliniği",
+    "realEstate": "Emlak",
+    "other": "Diğer İşletme"
+  }
+}

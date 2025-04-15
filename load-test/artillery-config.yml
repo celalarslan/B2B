@@ -1,0 +1,172 @@
+config:
+  target: "https://yvwhtdnuevvehjqnqcnv.supabase.co"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      name: "Warm up"
+    - duration: 120
+      arrivalRate: 10
+      rampTo: 50
+      name: "Ramp up load"
+    - duration: 300
+      arrivalRate: 50
+      name: "Sustained load"
+    - duration: 60
+      arrivalRate: 100
+      name: "Peak load"
+    - duration: 120
+      arrivalRate: 50
+      rampTo: 10
+      name: "Ramp down"
+  environments:
+    production:
+      target: "https://yvwhtdnuevvehjqnqcnv.supabase.co"
+      phases:
+        - duration: 300
+          arrivalRate: 100
+          rampTo: 500
+          name: "High load test"
+        - duration: 600
+          arrivalRate: 500
+          name: "Sustained high load"
+  plugins:
+    metrics-by-endpoint: {}
+    expect: {}
+    apdex: {}
+  apdex:
+    threshold: 500
+  ensure:
+    p95: 2000
+    maxErrorRate: 5
+  http:
+    timeout: 30
+    maxSockets: 20
+
+processor: "./artillery-functions.js"
+
+scenarios:
+  - name: "Edge Functions Load Test"
+    weight: 3
+    flow:
+      - function: "authenticate"
+      - think: 1
+      - group:
+          name: "AI Training"
+          steps:
+            - function: "generateTrainingPayload"
+            - post:
+                url: "/functions/v1/ai-training"
+                json: "{{ trainingPayload }}"
+                headers:
+                  Content-Type: "application/json"
+                  apikey: "{{ $processEnvironment.SUPABASE_ANON_KEY }}"
+                  Authorization: "Bearer {{ authToken }}"
+                capture:
+                  - json: "$.trainingId"
+                    as: "trainingId"
+                expect:
+                  - statusCode: 200
+                  - contentType: json
+                  - hasProperty: success
+      - think: 2
+      - group:
+          name: "NLP Processing"
+          steps:
+            - function: "generateNlpPayload"
+            - post:
+                url: "/functions/v1/nlp-processing"
+                json: "{{ nlpPayload }}"
+                headers:
+                  Content-Type: "application/json"
+                  apikey: "{{ $processEnvironment.SUPABASE_ANON_KEY }}"
+                  Authorization: "Bearer {{ authToken }}"
+                expect:
+                  - statusCode: 200
+                  - contentType: json
+                  - hasProperty: intent
+      - think: 2
+      - group:
+          name: "Model Deployment"
+          steps:
+            - function: "generateDeploymentPayload"
+            - post:
+                url: "/functions/v1/model-deployment/deploy"
+                json: "{{ deploymentPayload }}"
+                headers:
+                  Content-Type: "application/json"
+                  apikey: "{{ $processEnvironment.SUPABASE_ANON_KEY }}"
+                  Authorization: "Bearer {{ authToken }}"
+                expect:
+                  - statusCode: 200
+                  - contentType: json
+                  - hasProperty: deploymentId
+
+  - name: "REST API Load Test"
+    weight: 5
+    flow:
+      - function: "authenticate"
+      - think: 1
+      - group:
+          name: "Conversations Query"
+          steps:
+            - get:
+                url: "/rest/v1/conversations?select=*&limit=10&organization_id=eq.{{ organizationId }}"
+                headers:
+                  Content-Type: "application/json"
+                  apikey: "{{ $processEnvironment.SUPABASE_ANON_KEY }}"
+                  Authorization: "Bearer {{ authToken }}"
+                expect:
+                  - statusCode: 200
+                  - contentType: json
+      - think: 1
+      - group:
+          name: "Customers Query"
+          steps:
+            - get:
+                url: "/rest/v1/customers?select=*&limit=10&organization_id=eq.{{ organizationId }}"
+                headers:
+                  Content-Type: "application/json"
+                  apikey: "{{ $processEnvironment.SUPABASE_ANON_KEY }}"
+                  Authorization: "Bearer {{ authToken }}"
+                expect:
+                  - statusCode: 200
+                  - contentType: json
+      - think: 1
+      - group:
+          name: "Trend Insights Query"
+          steps:
+            - get:
+                url: "/rest/v1/rpc/get_trend_data_cached?p_organization_id={{ organizationId }}&p_trend_type=daily&p_limit=30"
+                headers:
+                  Content-Type: "application/json"
+                  apikey: "{{ $processEnvironment.SUPABASE_ANON_KEY }}"
+                  Authorization: "Bearer {{ authToken }}"
+                expect:
+                  - statusCode: 200
+                  - contentType: json
+
+  - name: "Concurrent Conversations"
+    weight: 2
+    flow:
+      - function: "authenticate"
+      - think: 1
+      - loop:
+          - group:
+              name: "Conversation Turn"
+              steps:
+                - function: "generateConversationPayload"
+                - post:
+                    url: "/functions/v1/nlp-processing"
+                    json: "{{ conversationPayload }}"
+                    headers:
+                      Content-Type: "application/json"
+                      apikey: "{{ $processEnvironment.SUPABASE_ANON_KEY }}"
+                      Authorization: "Bearer {{ authToken }}"
+                    capture:
+                      - json: "$.request_id"
+                        as: "requestId"
+                    expect:
+                      - statusCode: 200
+                      - contentType: json
+                - think: 2
+        count: 5
