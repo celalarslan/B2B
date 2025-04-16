@@ -1,0 +1,66 @@
+{
+  "app": {
+    "title": "Assistant de Transfert d'Appel",
+    "description": "Générez un code de transfert d'appel pour utiliser notre assistant IA",
+    "footer": "© 2025 Assistant de Transfert d'Appel. Tous droits réservés."
+  },
+  "form": {
+    "country": "Pays",
+    "selectCountry": "Sélectionnez votre pays",
+    "operator": "Opérateur Mobile",
+    "selectOperator": "Sélectionnez votre opérateur",
+    "phoneNumber": "Numéro de Téléphone",
+    "phoneNumberPlaceholder": "Entrez votre numéro de téléphone",
+    "generate": "Générer le Code"
+  },
+  "result": {
+    "title": "Votre Code de Transfert d'Appel",
+    "description": "Utilisez ce code sur votre téléphone pour transférer les appels vers notre assistant IA",
+    "copyButton": "Copier dans le presse-papiers",
+    "copied": "Copié !",
+    "instructions": "Comment utiliser",
+    "step1": "Composez ce code sur votre téléphone",
+    "step2": "Appuyez sur le bouton d'appel",
+    "step3": "Attendez la confirmation",
+    "cancelTitle": "Pour annuler le transfert d'appel, composez :"
+  },
+  "download": {
+    "title": "Téléchargez Notre Application",
+    "description": "Obtenez notre application mobile pour une expérience améliorée",
+    "scanQR": "Scannez ce code QR",
+    "orDownload": "Ou téléchargez directement",
+    "downloadButton": "Télécharger l'Application",
+    "androidOnly": "Actuellement disponible uniquement pour les appareils Android"
+  },
+  "language": {
+    "en": "Anglais",
+    "tr": "Turc",
+    "fr": "Français",
+    "ar": "Arabe"
+  },
+  "assistant": {
+    "title": "Assistant IA",
+    "welcomeMessage": "👋 Bonjour ! Je suis votre assistant IA. Comment puis-je vous aider à comprendre notre service de transfert d'appel aujourd'hui ?",
+    "downloadHelp": "👋 Bonjour ! Je peux vous aider à télécharger et à configurer notre application. Avez-vous des questions sur le processus d'installation ?",
+    "typeMessage": "Tapez votre message...",
+    "enterInfo": "Entrez vos informations...",
+    "startVoiceInput": "Démarrer l'Entrée Vocale",
+    "stopRecording": "Arrêter l'Enregistrement",
+    "processing": "Traitement en cours..."
+  },
+  "sectors": {
+    "restaurant": "Restaurant",
+    "clinic": "Clinique Médicale",
+    "hotel": "Hôtel",
+    "mechanic": "Mécanicien Auto",
+    "carRental": "Location de Voitures",
+    "foodDelivery": "Livraison de Repas",
+    "retail": "Magasin de Détail",
+    "salon": "Salon de Beauté",
+    "gym": "Centre de Fitness",
+    "spa": "Spa & Bien-être",
+    "dentist": "Cabinet Dentaire",
+    "realEstate": "Immobilier",
+    "other": "Autre Entreprise"
+  }
+}

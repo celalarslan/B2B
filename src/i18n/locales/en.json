@@ -1,0 +1,66 @@
+{
+  "app": {
+    "title": "Call Forwarding Assistant",
+    "description": "Generate a call forwarding code for your phone to use our AI assistant",
+    "footer": "© 2025 Call Forwarding Assistant. All rights reserved."
+  },
+  "form": {
+    "country": "Country",
+    "selectCountry": "Select your country",
+    "operator": "Mobile Operator",
+    "selectOperator": "Select your operator",
+    "phoneNumber": "Phone Number",
+    "phoneNumberPlaceholder": "Enter your phone number",
+    "generate": "Generate Code"
+  },
+  "result": {
+    "title": "Your Call Forwarding Code",
+    "description": "Use this code on your phone to forward calls to our AI assistant",
+    "copyButton": "Copy to clipboard",
+    "copied": "Copied!",
+    "instructions": "How to use",
+    "step1": "Dial this code on your phone",
+    "step2": "Press the call button",
+    "step3": "Wait for confirmation",
+    "cancelTitle": "To cancel call forwarding, dial:"
+  },
+  "download": {
+    "title": "Download Our App",
+    "description": "Get our mobile app for an enhanced experience",
+    "scanQR": "Scan this QR code",
+    "orDownload": "Or download directly",
+    "downloadButton": "Download App",
+    "androidOnly": "Currently available for Android devices only"
+  },
+  "language": {
+    "en": "English",
+    "tr": "Turkish",
+    "fr": "French",
+    "ar": "Arabic"
+  },
+  "assistant": {
+    "title": "AI Assistant",
+    "welcomeMessage": "👋 Hello! I'm your AI assistant. How can I help you understand our call forwarding service today?",
+    "downloadHelp": "👋 Hello! I can help you download and set up our app. Do you have any questions about the installation process?",
+    "typeMessage": "Type your message...",
+    "enterInfo": "Enter your information...",
+    "startVoiceInput": "Start Voice Input",
+    "stopRecording": "Stop Recording",
+    "processing": "Processing..."
+  },
+  "sectors": {
+    "restaurant": "Restaurant",
+    "clinic": "Medical Clinic",
+    "hotel": "Hotel",
+    "mechanic": "Auto Mechanic",
+    "carRental": "Car Rental",
+    "foodDelivery": "Food Delivery",
+    "retail": "Retail Store",
+    "salon": "Beauty Salon",
+    "gym": "Fitness Center",
+    "spa": "Spa & Wellness",
+    "dentist": "Dental Office",
+    "realEstate": "Real Estate",
+    "other": "Other Business"
+  }
+}
